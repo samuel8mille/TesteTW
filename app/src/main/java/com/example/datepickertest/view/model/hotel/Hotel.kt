@@ -16,7 +16,7 @@ abstract class Hotel {
 
     abstract fun getRewardWeekendDaily(): BigDecimal
 
-    abstract fun getClassificacao(): Int
+    abstract fun getRating(): Int
 
     private var _totalCost = BigDecimal(0)
 
@@ -75,11 +75,11 @@ abstract class Hotel {
 
         private fun getBestRatingHotel(hotels: List<Hotel>): Hotel {
             var hotel = hotels[0]
-            var avaliation = 0
+            var rating = 0
 
             hotels.forEach {
-                if (it.getClassificacao() > avaliation) {
-                    avaliation = it.getClassificacao()
+                if (it.getRating() > rating) {
+                    rating = it.getRating()
                     hotel = it
                 }
             }

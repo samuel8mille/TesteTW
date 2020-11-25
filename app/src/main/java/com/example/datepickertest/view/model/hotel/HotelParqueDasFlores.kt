@@ -1,6 +1,5 @@
 package com.example.datepickertest.view.model.hotel
 
-import com.example.datepickertest.view.model.hotel.Hotel
 import java.math.BigDecimal
 
 class HotelParqueDasFlores : Hotel() {
@@ -25,7 +24,7 @@ class HotelParqueDasFlores : Hotel() {
         return BigDecimal(80)
     }
 
-    override fun getClassificacao(): Int {
+    override fun getRating(): Int {
         return 3
     }
 }
