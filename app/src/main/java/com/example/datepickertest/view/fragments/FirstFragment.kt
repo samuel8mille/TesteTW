@@ -4,22 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.datepickertest.R
 import com.example.datepickertest.databinding.FragmentFirstBinding
 import com.example.datepickertest.view.model.hotel.Hotel
 import com.example.datepickertest.view.model.hotel.HotelJardimBotanico
 import com.example.datepickertest.view.model.hotel.HotelMarAtlantico
 import com.example.datepickertest.view.model.hotel.HotelParqueDasFlores
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+import java.text.NumberFormat
+import java.util.*
 
 class FirstFragment : Fragment() {
 
     private lateinit var calendarView: MaterialCalendarView
 
     private lateinit var binding: FragmentFirstBinding
+
+    private val formatoDinheiro = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +36,7 @@ class FirstFragment : Fragment() {
 
         calendarView = binding.calendarView
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
+        binding.buttonFirst.setOnClickListener {
             getBestPrice()
         }
     }
@@ -53,7 +55,7 @@ class FirstFragment : Fragment() {
 
             Toast.makeText(
                 context,
-                "O melhor preço é do: ${bestPriceHotel.getName()} com o valor de: R$${bestPriceHotel.totalCost}",
+                "O melhor preço é do: ${bestPriceHotel.getName()} com o valor de: ${formatoDinheiro.format(bestPriceHotel.totalCost)}",
                 Toast.LENGTH_LONG
             ).show()
         } else {

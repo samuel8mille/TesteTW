@@ -4,19 +4,7 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import java.math.BigDecimal
 import java.util.*
 
-abstract class Hotel {
-
-    abstract fun getName(): String
-
-    abstract fun getRegularWeekdayDaily(): BigDecimal
-
-    abstract fun getRewardWeekdayDaily(): BigDecimal
-
-    abstract fun getRegularWeekendDaily(): BigDecimal
-
-    abstract fun getRewardWeekendDaily(): BigDecimal
-
-    abstract fun getRating(): Int
+abstract class Hotel: IHotel {
 
     private var _totalCost = BigDecimal(0)
 
@@ -25,7 +13,7 @@ abstract class Hotel {
             return _totalCost
         }
 
-    private fun calculateCost(dates: MutableList<CalendarDay>, isReward: Boolean): BigDecimal {
+    fun calculateCost(dates: MutableList<CalendarDay>, isReward: Boolean): BigDecimal {
 
         var cost = BigDecimal(0)
 
@@ -73,7 +61,7 @@ abstract class Hotel {
             }
         }
 
-        private fun getBestRatingHotel(hotels: List<Hotel>): Hotel {
+        fun getBestRatingHotel(hotels: List<Hotel>): Hotel {
             var hotel = hotels[0]
             var rating = 0
 

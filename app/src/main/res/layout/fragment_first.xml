@@ -6,6 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10dp"
         tools:context=".view.fragments.FirstFragment">
 
         <com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -24,10 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:text="Reward Cliente?"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView"
-            android:text="Reward Cliente?"/>
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
         <Button
             android:id="@+id/button_first"
